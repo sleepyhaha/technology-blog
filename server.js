@@ -23,8 +23,6 @@ const sess = {
 
 app.use(session(sess));
 
-app.use(express.static("public"));
-
 const hbs = exphbs.create();
 
 app.engine("handlebars", hbs.engine);
