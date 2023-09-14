@@ -1,6 +1,7 @@
 const router = require("express").Router();
+const mainRoute = require("./mainRoute.js");
 
-router.use("/", require("./mainRoute"));
+router.use("/", mainRoute);
 
 router.use("*", (req, res) => {
   res.render("home");
