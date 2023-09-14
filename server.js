@@ -1,7 +1,8 @@
 const express = require("express");
 const session = require("express-session");
-const sequelize = require("./config/connection");
+const sequelize = require("./config/connection.js");
 const exphbs = require("express-handlebars");
+const path = require("path");
 require("dotenv").config();
 
 const app = express();
