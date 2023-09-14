@@ -4,6 +4,7 @@ const SequelizeStore = require("connect-session-sequelize")(session.Store);
 const sequelize = require("./config/connection.js");
 const exphbs = require("express-handlebars");
 const path = require("path");
+const routes = require("./controllers");
 require("dotenv").config();
 
 const app = express();
@@ -29,7 +30,7 @@ app.engine("handlebars", hbs.engine);
 app.set("view engine", "handlebars");
 app.use(express.static(path.join(__dirname, "public")));
 
-app.use(require("./controllers"));
+app.use("/", routes);
 
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log(`Now listening on ${PORT}`));
